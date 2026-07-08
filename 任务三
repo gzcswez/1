@@ -1,0 +1,32 @@
+import numpy as np
+
+# 1. 逐元素乘法 vs 矩阵乘法
+np.random.seed(1)  # 固定种子方便复现，可删除
+A = np.random.randint(1, 10, size=(2, 3))
+B = np.random.randint(1, 10, size=(2, 3))
+print("数组A:\n", A)
+print("数组B:\n", B)
+
+ele_mul = A * B  # 逐元素相乘，要求形状完全一致
+print("\n逐元素乘法 A * B:")
+print(ele_mul)
+
+mat_mul = A @ B.T  # 矩阵乘法，需满足 (m×n) @ (n×k) = m×k
+print("矩阵乘法 A @ B.T:")
+print(mat_mul)
+
+# 2. 按行/按列求和
+arr2 = np.array([[1, 2], [3, 4]])
+sum_col = np.sum(arr2, axis=0)  # axis=0：压缩行，按列求和
+sum_row = np.sum(arr2, axis=1)  # axis=1：压缩列，按行求和
+print("\n列求和 (axis=0):", sum_col)
+print("行求和 (axis=1):", sum_row)
+
+# 3. 均值、标准差、四舍五入
+arr3 = np.array([1.2, 3.5, 2.8])
+mean_val = np.mean(arr3)
+std_val = np.std(arr3)
+rounded = np.round(arr3)
+print(f"\n均值: {mean_val:.2f}")
+print(f"标准差: {std_val:.2f}")
+print("四舍五入:", rounded)
