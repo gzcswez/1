@@ -1,0 +1,20 @@
+import numpy as np
+
+# 1. 生成0~1随机浮点数组，归一化到[0, 100]区间
+arr = np.random.rand(10)
+print("原始数组 (保留3位小数):")
+print(arr.round(3))
+
+# 归一化公式：(x - min) / (max - min) * 目标区间上限
+arr_min, arr_max = arr.min(), arr.max()
+normalized = (arr - arr_min) / (arr_max - arr_min) * 100
+print("\n归一化到[0,100]:")
+print(normalized.round(2))
+
+# 2. 累计和、累计最大值
+cum_sum = np.cumsum(normalized)
+cum_max = np.maximum.accumulate(normalized)  # 也可直接用 normalized.cummax()
+print("\n累计和:")
+print(cum_sum.round(2))
+print("累计最大值:")
+print(cum_max.round(2))
