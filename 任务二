@@ -1,0 +1,18 @@
+import numpy as np
+
+arr = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+print("原数组:")
+print(arr)
+
+# 1. 第2行（索引1）的第1~3列（索引0:3，左闭右开）
+part1 = arr[1, 0:3]
+print("\n第2行第1-3列:", part1)
+
+# 2. 所有行的第3列（索引2）
+part2 = arr[:, 2]
+print("所有行第3列:", part2)
+
+# 3. 步长切片取第1、3行（索引0、2）
+part3 = arr[::2, :]
+print("奇数行:")
+print(part3)
